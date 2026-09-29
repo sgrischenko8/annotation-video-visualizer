@@ -5,11 +5,11 @@ CVAT "CVAT for video 1.1" XML exports (box tracks).
 
 Usage
 -----
-  python validate_cvat.py annotations.xml
-  python validate_cvat.py annotations.xml --json report.json
-  python validate_cvat.py annotations.xml --anonymize annotations_public.xml
-  python validate_cvat.py annotations.xml --preview video.mp4      # needs opencv-python
-  python validate_cvat.py --video ./video.mp4 --xml ./annotations.xml --output result_video.mp4
+  python validate_cvat.py --xml ./annotations.xml 
+  python validate_cvat.py --xml ./annotations.xml --json report.json
+  python validate_cvat.py --xml ./annotations.xml --anonymize annotations_public.xml
+  python validate_cvat.py --xml ./annotations.xml --preview video.mp4      # needs opencv-python
+  python validate_cvat.py --video ./video.mp4 --xml ./annotations.xml --output output_validated.mp4
 
 Exit code: 0 = no errors, 1 = errors found (or warnings with --strict).
 
@@ -458,9 +458,9 @@ def main():
                     help="warn if width/height changes more than this fraction between adjacent frames")
     ap.add_argument("--max-examples", type=int, default=5)
     ap.add_argument("--strict", action="store_true", help="exit with code 1 on warnings too")
-    ap.add_argument('--video', default='', required=False, help='Шлях до вхідного відеофайлу (наприклад, input.mp4)')
-    ap.add_argument('--xml', required=True, help='Шлях до XML файлу анотацій з CVAT')
-    ap.add_argument('--output', default='output_validated.mp4', help='Шлях для збереження вихідного відео')
+    ap.add_argument('--video', default='', required=False, help='input video path (e.g., input.mp4)')
+    ap.add_argument('--xml', required=True, help='path to XML annotation file from CVAT')
+    ap.add_argument('--output', default='output_validated.mp4', help='path to save the validated video')
     
     args = ap.parse_args()
     video_path = str(Path(args.video))

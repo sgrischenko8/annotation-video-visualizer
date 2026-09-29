@@ -1,12 +1,7 @@
-## Annotation guidelines
+## Annotation guidelines (Vehicles)
 
 Points the guidelines must settle (decide once, apply everywhere):
 
-- Box tightness: box touches the outermost visible parts (nose, tail, wingtips).
-- Vapour cones, contrails and motion blur: included in the box.
-- Aircraft partly out of frame: annotate the visible part only.
-- Occlusion:
-  - `none`: the aircraft is fully visible and is not obscured.
-  - `partial`: part of the aircraft is obscured by clouds, glare/overexposure, or vapour emitted by the aircraft itself, while a visible portion remains.
-  - `full`: the aircraft is completely obscured and is not visible.
-- Keyframe policy: how often to place keyframes; re-check interpolated segments at least every 25 frames.
+- **Box tightness**: The bounding box must tightly enclose the vehicle's visible structure (excluding shadow on the ground, but including bumpers, side mirrors, and wheels if visible).
+- **Vehicles partially out of frame**: If a car is cut off by the edge of the frame, annotate only the visible portion. Set the attribute outside to true only when it completely leaves the scene.
+- **Keyframe policy**: Place keyframes on frames where the vehicle changes speed, makes a turn, or experiences sudden motion changes. Re-check interpolated segments at least every 25–30 frames.
