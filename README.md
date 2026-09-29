@@ -54,6 +54,7 @@ python validate_cvat.py --xml ./annotations.xml --preview video.mp4
 
 # save validated video with drawn bounding boxes
 python validate_cvat.py --video ./video.mp4 --xml ./annotations.xml --output output_validated.mp4
+```
 
 ## Repository layout
 
